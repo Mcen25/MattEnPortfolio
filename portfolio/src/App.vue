@@ -10,21 +10,21 @@ export default defineComponent({
     RouterLink,
     RouterView
   },
-  setup() {
-    const state = reactive({
-      name: 'Link',
-      age: 25 as string | number
-    })
+  // setup() {
+  //   const state = reactive({
+  //     name: 'Link',
+  //     age: 25 as string | number
+  //   })
 
-    return { ...toRefs(state) }
+  //   return { ...toRefs(state) }
 
-    const name = ref('Link')
-  },
-  methods: {
-    changeName(name: string) {
-      this.name = name
-    }
-  }
+  //   const name = ref('Link')
+  // },
+  // methods: {
+  //   changeName(name: string) {
+  //     this.name = name
+  //   }
+  // }
 })
 </script>
 
