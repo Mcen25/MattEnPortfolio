@@ -9,7 +9,7 @@ export default defineComponent({
     navbar,
     RouterLink,
     RouterView
-  },
+  }
   // setup() {
   //   const state = reactive({
   //     name: 'Link',
