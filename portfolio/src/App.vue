@@ -30,7 +30,10 @@ export default defineComponent({
 
 <template>
   <div id="app">
-    <navbar />
+    <div id="nav">
+      <navbar />
+    </div>
+    <router-view />
   </div>
 </template>
 

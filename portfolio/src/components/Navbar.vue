@@ -59,35 +59,35 @@ export default defineComponent({
   </b-navbar> -->
 
   <BNavbar toggleable="lg" variant="primary" v-b-color-mode="'dark'">
-    <BNavbarBrand href="#">NavBar</BNavbarBrand>
-    <BNavbarToggle target="nav-collapse" />
-    <BCollapse id="nav-collapse" is-nav>
-      <BNavbarNav>
-        <BNavItem href="#">Link</BNavItem>
-        <BNavItem href="#" disabled>Disabled</BNavItem>
-      </BNavbarNav>
-      <!-- Right aligned nav items -->
-      <BNavbarNav class="ms-auto mb-2 mb-lg-0">
-        <BNavItemDropdown text="Lang" right>
-          <BDropdownItem href="#">EN</BDropdownItem>
-          <BDropdownItem href="#">ES</BDropdownItem>
-          <BDropdownItem href="#">RU</BDropdownItem>
-          <BDropdownItem href="#">FA</BDropdownItem>
-        </BNavItemDropdown>
-        <BNavItemDropdown right>
-          <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <BDropdownItem href="#">Profile</BDropdownItem>
-          <BDropdownItem href="#">Sign Out</BDropdownItem>
-        </BNavItemDropdown>
-      </BNavbarNav>
-      <BNavForm class="d-flex">
-        <BFormInput class="me-2" placeholder="Search" />
-        <BButton type="submit" variant="outline-success">Search</BButton>
-      </BNavForm>
-    </BCollapse>
+    <div class="container d-flex justify-content-center align-items-center">
+      <BNavbarToggle target="nav-collapse" />
+      <BCollapse id="nav-collapse" is-nav>
+        <BNavbarNav class="w-100 d-flex justify-content-center">
+          <BNavbarBrand href="#">Matt En's Portfolio</BNavbarBrand>
+          <b-nav-item to="/">Home</b-nav-item>
+          <!-- <BNavItem href="#">Home</BNavItem> -->
+          <b-nav-item to="/about">About</b-nav-item>
+          <BNavItemDropdown text="Projects">
+            <BDropdownItem href="#">Multi-Agent Task in Unity</BDropdownItem>
+            <BDropdownItem href="#">MRI Tensorflow Project</BDropdownItem>
+            <BDropdownItem href="#">Constellation Website</BDropdownItem>
+            <BDropdownItem href="#">Game Jam #14</BDropdownItem>
+          </BNavItemDropdown>
+          <BNavItem href="#">Contact</BNavItem>
+        </BNavbarNav>
+        <!-- Right aligned nav items -->
+        <BNavbarNav class="ms-auto mb-2 mb-lg-0">
+          <!-- Uncomment and use if needed -->
+          <!-- <BNavItemDropdown right>
+            <template #button-content>
+              <em>User</em>
+            </template>
+            <BDropdownItem href="#">Profile</BDropdownItem>
+            <BDropdownItem href="#">Sign Out</BDropdownItem>
+          </BNavItemDropdown> -->
+        </BNavbarNav>
+      </BCollapse>
+    </div>
   </BNavbar>
 </template>
 
