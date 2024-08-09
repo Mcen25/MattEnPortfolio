@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "vue-router": "^4.4.3"
+  },
+  "devDependencies": {
+    "@vue/babel-preset-jsx": "^1.4.0"
   }
 }
