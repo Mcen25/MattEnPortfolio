@@ -58,7 +58,7 @@ export default defineComponent({
     </div>
   </b-navbar> -->
 
-  <BNavbar toggleable="lg" variant="primary" v-b-color-mode="'dark'">
+  <BNavbar toggleable="lg" variant="light" bg="light" class="navbar-line">
     <div class="container d-flex justify-content-center align-items-center">
       <BNavbarToggle target="nav-collapse" />
       <BCollapse id="nav-collapse" is-nav>
@@ -94,5 +94,8 @@ export default defineComponent({
 <style scoped>
 .navbar-color {
   background-color: #f8f9fa;
+}
+.navbar-line {
+  border-bottom: 1px solid #cacbcc;
 }
 </style>
