@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Testing if this works for about</h1>
+    <h1>How this website is made!</h1>
+
+    <p>This website is built on Vue, Typescript, NEST, and PostgeSQL</p>
   </div>
 </template>
 
