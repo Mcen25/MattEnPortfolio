@@ -14,14 +14,31 @@
 
     <BRow class="justify-content-center">
       <BCol>
-        <BImg thumbnail fluid src="https://picsum.photos/250/250/?image=54" alt="Image 1" />
-        <!-- <img alt="Vue logo" class="logo hidden" src="@/assets/logo.svg" width="100" height="80" /> -->
+        <BImg
+          thumbnail
+          fluid
+          :src="blenderImage"
+          alt="Current blender project for a render"
+          class="hidden"
+        />
       </BCol>
       <BCol>
-        <BImg thumbnail fluid src="https://picsum.photos/250/250/?image=58" alt="Image 2" />
+        <BImg
+          thumbnail
+          fluid
+          :src="multiplayerGameDev"
+          alt="Unity Multiplayer demo"
+          class="hidden"
+        />
       </BCol>
       <BCol>
-        <BImg thumbnail fluid src="https://picsum.photos/250/250/?image=59" alt="Image 3" />
+        <BImg
+          thumbnail
+          fluid
+          :src="constellationWebsite"
+          alt="Constellation Website"
+          class="hidden"
+        />
       </BCol>
     </BRow>
 
@@ -62,6 +79,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { BRow, BCol, BImg } from 'bootstrap-vue-next'
+
+//images
+import blenderImage from '../assets/Blender Image.png'
+import multiplayerGameDev from '../assets/multiplayer.png'
+import constellationWebsite from '../assets/Constellation Website.png'
+
 export default defineComponent({
   name: 'HomeView',
   mounted() {
@@ -84,6 +107,13 @@ export default defineComponent({
     BRow,
     BCol,
     BImg
+  },
+  data() {
+    return {
+      blenderImage,
+      multiplayerGameDev,
+      constellationWebsite
+    }
   }
 })
 </script>
