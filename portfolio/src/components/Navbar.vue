@@ -39,17 +39,27 @@ export default defineComponent({
       <BNavbarToggle target="nav-collapse" />
       <BCollapse id="nav-collapse" is-nav>
         <BNavbarNav class="w-100 d-flex justify-content-center">
-          <BNavbarBrand href="#">Matt En's Portfolio</BNavbarBrand>
-          <b-nav-item to="/">Home</b-nav-item>
-          <!-- <BNavItem href="#">Home</BNavItem> -->
-          <b-nav-item to="/about">About</b-nav-item>
-          <BNavItemDropdown text="Projects">
-            <BDropdownItem href="#">Multi-Agent Task in Unity</BDropdownItem>
-            <BDropdownItem href="#">MRI Tensorflow Project</BDropdownItem>
-            <BDropdownItem href="#">Constellation Website</BDropdownItem>
-            <BDropdownItem href="#">Game Jam #14</BDropdownItem>
-          </BNavItemDropdown>
-          <BNavItem href="#">Contact</BNavItem>
+          <b-navbar-brand href="#">
+            <img
+              alt="Vue logo"
+              class="logo hidden"
+              src="@/assets/logo.svg"
+              width="100"
+              height="80"
+            />
+          </b-navbar-brand>
+
+          <b-navbar-nav class="mx-auto custom-nav">
+            <b-nav-item to="/">Home</b-nav-item>
+            <b-nav-item to="/about">About</b-nav-item>
+            <b-nav-item-dropdown text="Projects">
+              <b-dropdown-item href="#">Multi-Agent Task in Unity</b-dropdown-item>
+              <b-dropdown-item href="#">MRI Tensorflow Project</b-dropdown-item>
+              <b-dropdown-item href="#">Constellation Website</b-dropdown-item>
+              <b-dropdown-item href="#">Game Jam #14</b-dropdown-item>
+            </b-nav-item-dropdown>
+            <b-nav-item to="/contact">Contact</b-nav-item>
+          </b-navbar-nav>
         </BNavbarNav>
         <!-- Right aligned nav items -->
         <BNavbarNav class="ms-auto mb-2 mb-lg-0">
@@ -73,5 +83,12 @@ export default defineComponent({
 }
 .navbar-line {
   border-bottom: 1px solid #cacbcc;
+}
+
+.custom-nav {
+  margin-top: 25px;
+  gap: 30px;
+  font-size: large;
+  font-weight: 500;
 }
 </style>
