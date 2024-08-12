@@ -13,7 +13,6 @@ import {
   BFormInput,
   BButton
 } from 'bootstrap-vue-next'
-import logo from './assets/logo.png'
 
 export default defineComponent({
   name: 'Navbar',
