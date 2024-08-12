@@ -5,7 +5,7 @@ export class Form {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'date', length: 30 })
+  @Column({ type: 'date' })
   Date: Date;
 
   @Column({ type: 'varchar', length: 15 })

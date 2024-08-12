@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './user/user.module';
 import { FormModule } from './form/form.module';
 import * as dotenv from 'dotenv';
 import { Form } from './form/entities/form.entity';
@@ -22,7 +21,6 @@ dotenv.config();
       synchronize: true,
       logging: true,
     }),
-    UserModule,
     FormModule,
   ],
   controllers: [AppController],

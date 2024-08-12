@@ -38,34 +38,24 @@
   <h1>Or you can reach me through this contact form:</h1>
 
   <BForm @submit="onSubmit" @reset="onReset" v-if="show">
+    <BFormGroup id="input-group-3" label="Category:" label-for="input-3">
+      <BFormSelect id="input-3" v-model="form.about" :options="category" required />
+    </BFormGroup>
     <BFormGroup
       id="input-group-1"
-      label="Email address:"
+      label="Feedback Form:"
       label-for="input-1"
-      description="We'll never share your email with anyone else."
+      description="Tell me what you think!"
     >
       <BFormInput
         id="input-1"
-        v-model="form.email"
-        type="email"
-        placeholder="Enter email"
+        v-model="form.feedback"
+        type="text"
+        placeholder="Write your feedback here"
         required
       />
     </BFormGroup>
 
-    <BFormGroup id="input-group-2" label="Your Name:" label-for="input-2">
-      <BFormInput id="input-2" v-model="form.name" placeholder="Enter name" required />
-    </BFormGroup>
-    <BFormGroup id="input-group-3" label="Food:" label-for="input-3">
-      <BFormSelect id="input-3" v-model="form.food" :options="foods" required />
-    </BFormGroup>
-
-    <BFormGroup id="input-group-4">
-      <BFormCheckboxGroup v-model="form.checked" id="checkboxes-4">
-        <BFormCheckbox value="me">Check me out</BFormCheckbox>
-        <BFormCheckbox value="that">Check that out</BFormCheckbox>
-      </BFormCheckboxGroup>
-    </BFormGroup>
     <BButton type="submit" variant="primary">Submit</BButton>
     <BButton type="reset" variant="danger">Reset</BButton>
   </BForm>
@@ -96,6 +86,7 @@ import linkedinLogo from '../assets/LinkedIn_icon.svg.png'
 import githubLogo from '../assets/GitHub_Invertocat_Logo.svg.png'
 import { reactive } from 'vue'
 import { ref } from 'vue'
+import axios from 'axios'
 
 export default defineComponent({
   name: 'ContactView',
@@ -115,31 +106,39 @@ export default defineComponent({
   },
   data() {
     return {
-      foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
+      category: [
+        { text: 'Select One', value: null },
+        'Home',
+        'About',
+        'Projects',
+        'Constellation Website',
+        'Game Jam #14'
+      ],
       linkedinLogo,
       githubLogo,
       form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: []
+        date: '',
+        feedback: '',
+        about: ''
       },
       show: true
     }
   },
   methods: {
-    onSubmit(event: Event) {
-      event.preventDefault()
-      alert(JSON.stringify(this.form))
+    async onSubmit(event: Event) {
+      try {
+        const response = await axios.post('http://localhost:3000/form', this.form)
+        alert('Form submitted successfully!')
+      } catch (error: any) {
+        alert('Error submitting form: ' + error.message)
+      }
     },
     onReset(event: Event) {
       event.preventDefault()
       // Reset our form values
-      this.form.email = ''
-      this.form.name = ''
-      this.form.food = null
-      this.form.checked = []
-      // Trick to reset/clear native browser form validation state
+      this.form.date = ''
+      this.form.feedback = ''
+      this.form.about = ''
       this.show = false
       nextTick(() => {
         this.show = true
