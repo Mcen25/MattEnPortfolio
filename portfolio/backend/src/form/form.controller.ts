@@ -15,12 +15,7 @@ import { UpdateFormDto } from './dto/update-form.dto';
 export class FormController {
   constructor(private readonly formService: FormService) {}
 
-  @Post()
-  async handleFormSubmission(@Body() formData: any) {
-    // Handle form submission logic here
-    return { message: 'Form submitted successfully!' };
-  }
-  
+
   @Post()
   create(@Body() createFormDto: CreateFormDto) {
     return this.formService.createForm(createFormDto);

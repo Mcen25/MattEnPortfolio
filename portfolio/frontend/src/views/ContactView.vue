@@ -124,15 +124,42 @@ export default defineComponent({
       show: true
     }
   },
+  mounted() {
+    const currentDate = new Date().toISOString().split('T')[0];
+    this.form.date = currentDate;
+  },
   methods: {
     async onSubmit(event: Event) {
+      if (!this.form.date) {
+        const currentDate = new Date().toISOString().split('T')[0];
+        this.form.date = currentDate;
+      } else {
+        const currentDate = new Date().toISOString().split('T')[0];
+        this.form.date = currentDate;
+      }
+  
       try {
-        const response = await axios.post('http://localhost:3000/form', this.form)
-        alert('Form submitted successfully!')
+        const response = await axios.post('http://localhost:3000/api/form', this.form);
+        alert('Form submitted successfully!');
+        this.form.date = new Date().toISOString().split('T')[0];
+        this.form.feedback = '';
+        this.form.about = '';
       } catch (error: any) {
-        alert('Error submitting form: ' + error.message)
+        alert('Error submitting form: ' + error.message);
       }
     },
+    onReset(event: Event) {
+      event.preventDefault();
+      // Reset our form values
+      this.form.date = '';
+      this.form.feedback = '';
+      this.form.about = '';
+      this.show = false;
+      nextTick(() => {
+        this.show = true;
+      });
+    }
+  },
     onReset(event: Event) {
       event.preventDefault()
       // Reset our form values
@@ -144,8 +171,7 @@ export default defineComponent({
         this.show = true
       })
     }
-  }
-})
+  })
 </script>
 
 <style scoped></style>
