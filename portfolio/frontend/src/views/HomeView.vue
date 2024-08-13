@@ -4,73 +4,56 @@
 
     <p id="firstParagraph">
       I am a dedicated Computer Science student at the University of Massachusetts Amherst with a
-      passion for game development and astrophotography. My experience spans across software
-      development, teaching, and retail, where I've honed my technical and interpersonal skills. I
-      have contributed to projects involving multi-agent systems, full-stack web development, and
-      game design, all while maintaining a strong academic record. I'm driven by curiosity and a
-      desire to create immersive digital experiences, whether through collaborative game jams or
-      complex AI systems.
+      passion for game development and software engineering. My experience spans across software and
+      game development to teaching, where I've honed my technical and interpersonal skills. I have
+      contributed to projects involving multi-agent systems, full-stack web development, and game
+      design, all while maintaining a strong academic record. I'm driven by curiosity and a desire
+      to create immersive digital experiences, whether through collaborative game jams or through
+      full-stack websites.
     </p>
 
     <BRow class="justify-content-center">
       <BCol>
-        <BImg
-          thumbnail
-          fluid
-          :src="blenderImage"
-          alt="Current blender project for a render"
-          class="hidden"
-        />
+        <BImg thumbnail fluid :src="blenderImage" alt="Current blender project for a render" />
       </BCol>
       <BCol>
-        <BImg
-          thumbnail
-          fluid
-          :src="multiplayerGameDev"
-          alt="Unity Multiplayer demo"
-          class="hidden"
-        />
+        <BImg thumbnail fluid :src="multiplayerGameDev" alt="Unity Multiplayer demo" />
       </BCol>
       <BCol>
-        <BImg
-          thumbnail
-          fluid
-          :src="constellationWebsite"
-          alt="Constellation Website"
-          class="hidden"
-        />
+        <BImg thumbnail fluid :src="constellationWebsite" alt="Constellation Website" />
       </BCol>
     </BRow>
 
     <section>
       <h1 class="hidden">I do web development</h1>
       <p class="hidden">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        I've developed two full-stack websites as part of my journey in web development. The first
+        project was for my web development class, CS 326, where I built the frontend using
+        JavaScript, CSS, and HTML, with Express and MongoDB powering the backend. My second project
+        is this website, created with TypeScript, Vue, NestJS, and PostgreSQL. Web development is a
+        passion of mine, and I’m excited to continue exploring and creating more projects in the
+        future.
       </p>
     </section>
 
     <section>
-      <h1 class="hidden">I make games</h1>
+      <h1 class="hidden">I make games!</h1>
       <p class="hidden">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        "My hobby is game development, primarily in Unity. I collaborated with friends to create a
+        game called Spread, an FPS shooter where players face a monster that feeds on local
+        materials and creates multiple versions of itself. Currently, I'm working on a multiplayer
+        game inspired by Keep Talking and Nobody Explodes. Instead of one person handling the bomb,
+        this game challenges two players to work together in a high-stakes scenario to prevent a
+        nuclear bomb from detonating.
       </p>
     </section>
     <section>
-      <h1 class="hidden">I like to 3D model and sculpt</h1>
+      <h1 class="hidden">I also make 3D models and sculpt!</h1>
       <p class="hidden">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        I am also passionate about 3D modeling in Blender, a skill I picked up to create models and
+        animations for my game development projects. Since then, I have continued to refine my
+        skills, working on various 3D modeling projects. Recently, I have focused on creating simple
+        renders, like the ones showcased in the home pictures of my current project.
       </p>
     </section>
   </div>
@@ -129,6 +112,7 @@ section {
   place-items: center;
   align-content: center;
   height: 100vh;
+  padding: 0 20rem;
 }
 
 .hidden {
@@ -172,5 +156,20 @@ section {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+</style>
+
+<style>
+#center-text {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  background: linear-gradient(to top, #2217bd, #2e1857);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 </style>

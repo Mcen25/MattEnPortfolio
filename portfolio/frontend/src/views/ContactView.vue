@@ -1,8 +1,8 @@
 <template>
-  <h1>You can contact me via my email: men@umass.edu or matthew.en.c@gmail.com</h1>
+  <h1 id="center-text">You can contact me via my email: men@umass.edu or matthew.en.c@gmail.com</h1>
 
-  <BContainer>
-    <BRow align-v="center">
+  <BContainer class="d-flex justify-content-center align-items-center">
+    <BRow align-v="center" class="g-10">
       <BCol>
         <BCard
           title="Linkedin link"
@@ -35,34 +35,35 @@
       </BCol>
     </BRow>
   </BContainer>
-  <h1>Or you can reach me through this contact form:</h1>
+  <h1 id="center-text">Or you can reach me through this contact form:</h1>
 
-  <BForm @submit="onSubmit" @reset="onReset" v-if="show">
-    <BFormGroup id="input-group-3" label="Category:" label-for="input-3">
-      <BFormSelect id="input-3" v-model="form.About" :options="category" required />
-    </BFormGroup>
-    <BFormGroup
-      id="input-group-1"
-      label="Feedback Form:"
-      label-for="input-1"
-      description="Tell me what you think!"
-    >
-      <BFormInput
-        id="input-1"
-        v-model="form.Feedback"
-        type="text"
-        placeholder="Write your feedback here"
-        required
-      />
-    </BFormGroup>
+  <BContainer class="p-3">
+    <BForm @submit="onSubmit" @reset="onReset" v-if="show">
+      <BFormGroup id="input-group-3" label="Category:" label-for="input-3">
+        <BFormSelect id="input-3" v-model="form.About" :options="category" required />
+      </BFormGroup>
+      <BFormGroup
+        id="input-group-1"
+        label="Feedback Form:"
+        label-for="input-1"
+        description="Tell me what you think!"
+      >
+        <BFormInput
+          id="input-1"
+          v-model="form.Feedback"
+          type="text"
+          placeholder="Write your feedback here"
+          required
+        />
+      </BFormGroup>
+      <BButton type="submit" variant="primary">Submit</BButton>
+      <BButton type="reset" variant="danger">Reset</BButton>
+    </BForm>
 
-    <BButton type="submit" variant="primary">Submit</BButton>
-    <BButton type="reset" variant="danger">Reset</BButton>
-  </BForm>
-
-  <BCard class="mt-3" header="Form Data Result">
-    <pre class="m-0">{{ form }}</pre>
-  </BCard>
+    <BCard class="mt-3" header="Form Data Result">
+      <pre class="m-0">{{ form }}</pre>
+    </BCard>
+  </BContainer>
 </template>
 
 <script lang="ts">
@@ -84,8 +85,6 @@ import {
 
 import linkedinLogo from '../assets/LinkedIn_icon.svg.png'
 import githubLogo from '../assets/GitHub_Invertocat_Logo.svg.png'
-import { reactive } from 'vue'
-import { ref } from 'vue'
 import axios from 'axios'
 
 export default defineComponent({
@@ -125,44 +124,48 @@ export default defineComponent({
     }
   },
   mounted() {
-    const currentDate = new Date().toISOString().split('T')[0];
-    this.form.Date = currentDate;
+    const currentDate = new Date().toISOString().split('T')[0]
+    this.form.Date = currentDate
   },
   methods: {
     async onSubmit(event: Event) {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault()
 
-      if (!this.form.Date) {
-        const currentDate = new Date().toISOString().split('T')[0];
-        this.form.Date = currentDate;
-      } else {
-        const currentDate = new Date().toISOString().split('T')[0];
-        this.form.Date = currentDate;
-      }
-
-      console.log('Form Data:', this.form); // Log form data before submission
+      console.log('Form Data:', this.form)
 
       try {
-        const response = await axios.post('http://localhost:3000/api/form', this.form);
-        alert('Form submitted successfully!');
-        this.form.Date = new Date().toISOString().split('T')[0];
+        const response = await axios.post('http://localhost:3000/api/form', this.form)
+        alert('Form submitted successfully!')
+        this.form.Date = new Date().toISOString().split('T')[0]
       } catch (error: any) {
-        alert('Error submitting form: ' + error.message);
+        alert('Error submitting form: ' + error.message)
       }
     },
     onReset(event: Event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.Date = '';
-      this.form.Feedback = '';
-      this.form.About = '';
-      this.show = false;
+      event.preventDefault()
+      this.form.Date = ''
+      this.form.Feedback = ''
+      this.form.About = ''
+      this.show = false
       nextTick(() => {
-        this.show = true;
-      });
+        this.show = true
+      })
     }
-  },
-  })
+  }
+})
 </script>
 
-<style scoped></style>
+<style scoped>
+#center-text {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  background: linear-gradient(to top, #2217bd, #2e1857);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+</style>
