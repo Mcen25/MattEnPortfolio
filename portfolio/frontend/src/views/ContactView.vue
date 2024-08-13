@@ -39,7 +39,7 @@
 
   <BForm @submit="onSubmit" @reset="onReset" v-if="show">
     <BFormGroup id="input-group-3" label="Category:" label-for="input-3">
-      <BFormSelect id="input-3" v-model="form.about" :options="category" required />
+      <BFormSelect id="input-3" v-model="form.About" :options="category" required />
     </BFormGroup>
     <BFormGroup
       id="input-group-1"
@@ -49,7 +49,7 @@
     >
       <BFormInput
         id="input-1"
-        v-model="form.feedback"
+        v-model="form.Feedback"
         type="text"
         placeholder="Write your feedback here"
         required
@@ -117,33 +117,35 @@ export default defineComponent({
       linkedinLogo,
       githubLogo,
       form: {
-        date: '',
-        feedback: '',
-        about: ''
+        Date: '',
+        Feedback: '',
+        About: ''
       },
       show: true
     }
   },
   mounted() {
     const currentDate = new Date().toISOString().split('T')[0];
-    this.form.date = currentDate;
+    this.form.Date = currentDate;
   },
   methods: {
     async onSubmit(event: Event) {
-      if (!this.form.date) {
+      event.preventDefault(); // Prevent default form submission
+
+      if (!this.form.Date) {
         const currentDate = new Date().toISOString().split('T')[0];
-        this.form.date = currentDate;
+        this.form.Date = currentDate;
       } else {
         const currentDate = new Date().toISOString().split('T')[0];
-        this.form.date = currentDate;
+        this.form.Date = currentDate;
       }
-  
+
+      console.log('Form Data:', this.form); // Log form data before submission
+
       try {
         const response = await axios.post('http://localhost:3000/api/form', this.form);
         alert('Form submitted successfully!');
-        this.form.date = new Date().toISOString().split('T')[0];
-        this.form.feedback = '';
-        this.form.about = '';
+        this.form.Date = new Date().toISOString().split('T')[0];
       } catch (error: any) {
         alert('Error submitting form: ' + error.message);
       }
@@ -151,26 +153,15 @@ export default defineComponent({
     onReset(event: Event) {
       event.preventDefault();
       // Reset our form values
-      this.form.date = '';
-      this.form.feedback = '';
-      this.form.about = '';
+      this.form.Date = '';
+      this.form.Feedback = '';
+      this.form.About = '';
       this.show = false;
       nextTick(() => {
         this.show = true;
       });
     }
   },
-    onReset(event: Event) {
-      event.preventDefault()
-      // Reset our form values
-      this.form.date = ''
-      this.form.feedback = ''
-      this.form.about = ''
-      this.show = false
-      nextTick(() => {
-        this.show = true
-      })
-    }
   })
 </script>
 

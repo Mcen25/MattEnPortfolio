@@ -5,21 +5,14 @@ export class Form {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'date' })
+  @Column({ type: 'date', default: () => 'CURRENT_DATE' })
   Date: Date;
 
-  @Column({ type: 'varchar', length: 15 })
+  @Column({ default: 'No feedback givens'})
   Feedback: string;
 
   @Column({
-    type: 'enum',
-    enum: [
-      'Home',
-      'About',
-      'Projects',
-      'Constellation Website',
-      'Game Jam #14',
-    ],
+    default: 'No category selected'
   })
   About: string;
 }

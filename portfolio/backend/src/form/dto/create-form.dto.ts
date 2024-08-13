@@ -10,6 +10,7 @@ import {
   IsString,
   Matches,
   MinLength,
+  IsDateString,
 } from 'class-validator';
 
 export class CreateFormDto {
@@ -17,13 +18,12 @@ export class CreateFormDto {
   @IsNotEmpty()
   id: number;
 
-  @IsDate()
-  @IsNotEmpty()
+  @IsDateString()
   Date: Date;
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(3, { message: 'Username must have atleast 3 characters.' })
+  @MinLength(3, { message: 'Feedback must have atleast 3 characters.' })
   Feedback: string;
 
   @IsEnum([

@@ -12,12 +12,23 @@ export class FormService {
     private formRepository: Repository<Form>,
   ) {}
 
-  createForm(createFormDto: CreateFormDto) {
+  async createForm(createFormDto: CreateFormDto): Promise<Form> {
     const form: Form = new Form();
+    console.log('createFormDto:', createFormDto);
+    console.log('createFormDto.Date:', createFormDto.Date);
+    console.log('createFormDto.Feedback:', createFormDto.Feedback);
+    console.log('createFormDto.About:', createFormDto.About);
+
     form.Date = createFormDto.Date;
     form.Feedback = createFormDto.Feedback;
     form.About = createFormDto.About;
-    return this.formRepository.save(form);
+
+    try {
+      return await this.formRepository.save(form);
+    } catch (error) {
+      console.error('Error saving form:', error);
+      throw new Error('Could not save form');
+    }
   }
 
   findAllForms(): Promise<Form[]> {
