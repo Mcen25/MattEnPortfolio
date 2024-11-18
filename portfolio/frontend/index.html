@@ -9,6 +9,17 @@
   <body>
     <h1>Testing if this works!</h1>
     <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!'
+        },
+        template: '<div>{{ message }}</div>'
+      })
+    </script>
   </body>
 </html>
+<!-- <div id="app"></div>
+<script type="module" src="/src/main.ts"></script> -->
